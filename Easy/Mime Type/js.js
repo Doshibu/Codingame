@@ -1,28 +1,24 @@
-const n = parseInt(readline());
-const q = parseInt(readline());
+const n = parseInt(readline())
+const q = parseInt(readline())
 
-var mimeMap = {};
+var mimeMap = {}
 
-function getMimeType ( fileName )
-{
-    var qArray = fileName.split(".");
-    if ( qArray.length > 1 )
-    {
-        var extension = qArray.pop().toLowerCase();
-        if(  mimeMap[extension] )
-        {
-            return (mimeMap[extension]);
-        }
+function getMimeType (fileName) {
+  var qArray = fileName.split('.')
+  if (qArray.length > 1) {
+    var extension = qArray.pop().toLowerCase()
+    if (mimeMap[extension]) {
+      return (mimeMap[extension])
     }
-    return "UNKNOWN";
+  }
+  return 'UNKNOWN'
 }
 
 for (var i = 0; i < n; i++) {
-    var lineN = readline().split(" ");
-    mimeMap[lineN[0].toLowerCase()] = lineN[1];
+  var lineN = readline().split(' ')
+  mimeMap[lineN[0].toLowerCase()] = lineN[1]
 }
 
-for( var j = 0 ; j < q ; j++ )
-{
-    print (getMimeType(readline()));
+for (var j = 0; j < q; j++) {
+  print(getMimeType(readline()))
 }
